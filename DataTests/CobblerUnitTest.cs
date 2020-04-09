@@ -1,11 +1,20 @@
 using System;
 using ExamTwoCodeQuestions.Data;
+using System.ComponentModel;
 using Xunit;
 
 namespace ExamTwoCodeQuestions.DataTests
 {
     public class CobblerUnitTests
     {
+        //Checks if Cobbler implements PropertyChanged
+        [Fact]
+        public void CobblerImplementsINotifyPropertyChanged()
+        {
+            var cobbler = new Cobbler();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cobbler);
+        }
+
         [Theory]
         [InlineData(FruitFilling.Cherry)]
         [InlineData(FruitFilling.Blueberry)]
